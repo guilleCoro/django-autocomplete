@@ -1,6 +1,6 @@
 from django import forms
 from django.forms.util import flatatt
-from django.utils import simplejson
+import json
 from django.utils.safestring import mark_safe
 from django.conf import settings
 
@@ -46,7 +46,7 @@ class AutocompleteWidget(forms.Widget):
                 normal_attrs['value'] = value
         if not self.js_options.get('source'):
             self.js_options['source'] = self.settings.get_absolute_url()
-        options = simplejson.dumps(self.js_options)
+        options = json.dumps(self.js_options)
         return mark_safe(u''.join((
             u'<input%s />\n' % flatatt(hidden_attrs),
             u'<input%s />\n' % flatatt(normal_attrs),

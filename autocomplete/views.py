@@ -3,7 +3,7 @@ import operator
 from django.db import models
 from django.core.urlresolvers import reverse
 from django.http import Http404, HttpResponse, HttpResponseForbidden
-from django.utils import simplejson
+import json
 from django.utils.encoding import smart_str
 
 
@@ -95,7 +95,7 @@ class AutocompleteSettings(object):
                 label = self.label(o),
             ))
         
-        return HttpResponse(simplejson.dumps(data), mimetype='application/json')
+        return HttpResponse(json.dumps(data), mimetype='application/json')
 
     def _construct_search(self, field_name):
         # use different lookup methods depending on the notation
