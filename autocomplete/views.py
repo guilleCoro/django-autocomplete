@@ -95,7 +95,7 @@ class AutocompleteSettings(object):
                 label = self.label(o),
             ))
         
-        return HttpResponse(json.dumps(data), mimetype='application/json')
+        return HttpResponse(json.dumps(data), content_type='application/json')
 
     def _construct_search(self, field_name):
         # use different lookup methods depending on the notation
