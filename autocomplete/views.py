@@ -145,6 +145,8 @@ class AutocompleteView(object):
         return getattr(id, 'field', id) in self.settings
 
     def get_settings(self, id):
+        r=id
+        print id
         return self.settings[getattr(id, 'field', id)]
 
     def register(self, id, settings_class=AutocompleteSettings, **options):
